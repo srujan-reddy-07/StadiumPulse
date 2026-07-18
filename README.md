@@ -93,6 +93,8 @@ StadiumPulse/
     └── styles/
         └── globals.css         # Tailwind styles import entry
 
+```
+
 📊 Operational Assertions & Mathematical Framework
 The application relies on deterministic mathematical metrics to compute threat assessments before feeding contextual data arrays into the Google Gemini SDK:
 
