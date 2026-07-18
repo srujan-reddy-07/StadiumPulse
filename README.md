@@ -54,9 +54,10 @@ Structured Delivery: Gemini returns a strictly formatted JSON object using schem
 
 Real-time UX Update: The Live Dashboard renders color-coded heatmap warnings, while the Fan Assistant receives updated directional suggestions.
 
-📁 Flat & Modular Folder Structure
+## 📁 Flat & Modular Folder Structure
 The project layout isolates business logic, components, styling, and server-side logic into a clean, flat architecture:
 
+```text
 StadiumPulse/
 ├── .env.example                # Template for Gemini API credentials
 ├── .gitignore                  # Standard git ignore definitions
@@ -69,28 +70,28 @@ StadiumPulse/
 ├── tailwind.config.js          # FIFA custom color palettes & HSL tokens
 ├── tsconfig.json               # Environment TypeScript compiler choices
 └── src/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Root layout viewport shell (HTML/Body wrapper)
-│   ├── page.tsx            # Fan Assistant portal view (Mobile Interface)
-│   ├── dashboard/          # Organizer console dashboard view
-│   │   └── page.tsx        # Dashboard layout & simulated crisis triggers
-│   └── api/                # Serverless Next.js API Routes
-│       ├── chat/
-│       │   └── route.ts    # Gemini API route for concierge assistant
-│       └── telemetry/
-│           └── route.ts    # Telemetry simulation endpoints
-├── components/             # Reusable modular UI components
-│   └── Dashboard/
-│       ├── AlertBanner.jsx # Renders threat states & broadcasts
-│       ├── CrowdHeatmap.jsx# Interactive SVG stadium zone heatmap
-│       └── TelemetryGrid.jsx# Live wait times & fan sentiment
-├── lib/                    # Core libraries and configuration utilities
-│   ├── tests/          # Quality validation test scripts
-│   │   └── ui.test.js      # Component role attributes tests
-│   ├── gemini.ts           # Gemini API connection client wrapper
-│   └── telemetrySim.js     # Stateful matchday environment database simulator
-└── styles/
-└── globals.css         # Custom animations & Tailwind imports
+    ├── app/                    # Next.js App Router
+    │   ├── layout.tsx          # Root layout shell
+    │   ├── page.tsx            # Fan Assistant portal view
+    │   ├── dashboard/          # Organizer console dashboard view
+    │   │   └── page.tsx        # Dashboard layout code
+    │   └── api/                # Serverless Next.js API Routes
+    │       ├── chat/
+    │       │   └── route.ts    # Assistant chat route
+    │       └── telemetry/
+    │           └── route.ts    # Telemetry simulation endpoints
+    ├── components/             # Reusable modular UI components
+    │   └── Dashboard/
+    │       ├── AlertBanner.jsx # Threat states UI panel
+    │       ├── CrowdHeatmap.jsx# Interactive SVG map component
+    │       └── TelemetryGrid.jsx# Telemetry grid components
+    ├── lib/                    # Configuration utilities
+    │   ├── __tests__/          # Quality validation test scripts
+    │   │   └── ui.test.js      # Component logic validation
+    │   ├── gemini.ts           # Gemini API client wrapper
+    │   └── telemetrySim.js     # Telemetry database simulator
+    └── styles/
+        └── globals.css         # Tailwind styles import entry
 
 📊 Operational Assertions & Mathematical Framework
 The application relies on deterministic mathematical metrics to compute threat assessments before feeding contextual data arrays into the Google Gemini SDK:
